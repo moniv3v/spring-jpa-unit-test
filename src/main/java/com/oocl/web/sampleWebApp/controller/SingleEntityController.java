@@ -1,5 +1,6 @@
 package com.oocl.web.sampleWebApp.controller;
 
+import com.oocl.web.sampleWebApp.entity.SingleEntity;
 import com.oocl.web.sampleWebApp.repository.SingleEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class SingleEntityController {
 
     @Autowired
-    private SingleEntityRepository parkingBoyRepository;
+    private SingleEntityRepository singleEntityRepository;
 
     @GetMapping
-    public ResponseEntity<String> getResult(){
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<SingleEntity> get(){
+        SingleEntity singleEntity = new SingleEntity();
+        singleEntity.name = "ABC";
+        return ResponseEntity.ok(singleEntity);
     }
 
 }
